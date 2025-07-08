@@ -1,5 +1,5 @@
 {
-    "USE_MODELSCOPE": "1",
+    "USE_MODELSCOPE": "0",
     "PDF2ZH_LANG_FROM": "English",
     "PDF2ZH_LANG_TO": "Simplified Chinese",
     "NOTO_FONT_PATH": "/app/SourceHanSerifCN-Regular.ttf",
@@ -11,5 +11,6 @@
             }
         }
     ],
-    "PDF2ZH_VFONT": ""
+    "PDF2ZH_VFONT": "",
+    "ENABLED_SERVICES": ["DeepL"]
 }
