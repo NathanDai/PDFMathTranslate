@@ -117,7 +117,7 @@ if ConfigManager.get("PDF2ZH_DEMO"):
 # Limit Enabled Services
 enabled_services: T.Optional[T.List[str]] = ConfigManager.get("ENABLED_SERVICES")
 if isinstance(enabled_services, list):
-    default_services = ["Google", "Bing"]
+    default_services = []
     enabled_services_names = [str(_).lower().strip() for _ in enabled_services]
     enabled_services = [
         k
