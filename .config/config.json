@@ -4,7 +4,7 @@
         {
             "name": "deepl",
             "envs": {
-                "DEEPL_AUTH_KEY": "49957bf0-1735-49ff-b381-b259f7cfd648:fx"
+                "DEEPL_AUTH_KEY": ""
             }
         }
     ],
