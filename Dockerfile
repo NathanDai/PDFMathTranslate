@@ -28,10 +28,13 @@ COPY . .
 
 RUN uv pip install --system --no-cache . && uv pip install --system --no-cache -U "babeldoc<0.3.0" "pymupdf<1.25.3" "pdfminer-six==20250416" && babeldoc --version && babeldoc --warmup
 
-RUN mkdir -p /app/.config/
-RUN chmod 777 /app/.config
-RUN echo '{"USE_MODELSCOPE":"0","translators":[{"name":"deepl","envs":{"DEEPL_AUTH_KEY":"49957bf0-1735-49ff-b381-b259f7cfd648:fx"}}],"PDF2ZH_VFONT":"","ENABLED_SERVICES":["DeepL"],"HIDDEN_GRADIO_DETAILS":true,"PDF2ZH_LANG_FROM":"English","PDF2ZH_LANG_TO":"Simplified Chinese","NOTO_FONT_PATH":"/app/SourceHanSerifCN-Regular.ttf"}' > /app/.config/config.json
-RUN chmod 777 /app/.config/config.json
+RUN mkdir -p /.config
+RUN chmod 777 /.config
+RUN mkdir -p /.config/PDFMathTranslate
+RUN chmod 777 /.config/PDFMathTranslate
 
-CMD ["pdf2zh", "-i", "--config", "/app/.config/config.json"]
+RUN echo '{"USE_MODELSCOPE":"0","translators":[{"name":"deepl","envs":{"DEEPL_AUTH_KEY":"49957bf0-1735-49ff-b381-b259f7cfd648:fx"}}],"PDF2ZH_VFONT":"","ENABLED_SERVICES":["DeepL"],"HIDDEN_GRADIO_DETAILS":true,"PDF2ZH_LANG_FROM":"English","PDF2ZH_LANG_TO":"Simplified Chinese","NOTO_FONT_PATH":"/app/SourceHanSerifCN-Regular.ttf"}' > /.config/PDFMathTranslate/config.json
+RUN chmod 777 /.config/PDFMathTranslate/config.json
+
+CMD ["pdf2zh", "-i", "--config", "/.config/PDFMathTranslate/config.json"]
 
